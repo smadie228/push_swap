@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:01:13 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/03 19:04:33 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/03 22:05:40 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,20 @@ void create_array(int argc, char **argv, t_array *new)
 	char	**mass;
 
 	i = 1;
-	count_element = 0;
-	while (argc > 1)
+
+	while (i < argc)
 	{
-		p = 0;
+		p = -1;
 		count_element = ft_countword(argv[i]);
-		mass = ft_split(argv[i], count_element);
-		// нужна ли здесь проверка на выделение памяти под buf??? естьб же проверка в самом сплите buff = malloc
-		while (count_element > p)
+		mass = ft_split(argv[i], '1');
+		if (!(buff = (int *)malloc(sizeof(int) * (count_element))))
+			exit(1);
+		while (count_element > ++p)
 		{
 			buff[p] = ft_atoi(mass[p]);
-			// free?
+			printf ("%d\n", buff[p]);
 		}
 		//free?
-		printf ("%d", buff[p]);
 		i++;
 	}
 }
@@ -73,5 +73,5 @@ int main(int argc, char **argv)
 		exit (1);
 
 	create_array(argc, argv, new);
-
+	return (0);
 }
