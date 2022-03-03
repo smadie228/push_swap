@@ -6,18 +6,11 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:01:13 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/03 22:05:40 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/03 23:33:53 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-typedef struct s_array // создаем массив в структуре
-{
-	int	a[10000];
-	int count_element;
-}	t_array;
-
 
 int	ft_countword(char *s)
 {
@@ -58,20 +51,32 @@ void create_array(int argc, char **argv, t_array *new)
 		while (count_element > ++p)
 		{
 			buff[p] = ft_atoi(mass[p]);
-			printf ("%d\n", buff[p]);
 		}
-		//free?
+		ft_stacking(new, buff, count_element);
 		i++;
 	}
+}
+
+void	ft_stacking(t_array *new, int *buff, int count)
+{
+	int i;
+
+	i = -1;
+	while(count > ++i)
+		new->a[new->count_element + i] = buff[i];
+	new->count_element += count;
+	printf("%d,"new->count_elememt);
 }
 
 int main(int argc, char **argv)
 {
 	t_array *new;
-
+	if (!(new = (t_array *)malloc(sizeof(t_array))))
+		exit(1);
 	if (argc < 2)
 		exit (1);
 
 	create_array(argc, argv, new);
+
 	return (0);
 }
