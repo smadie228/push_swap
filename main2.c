@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:01:13 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/04 21:26:32 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/04 21:57:16 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_countword(char *s)
 	return (count);
 }
 
-void create_array(int argc, char **argv, t_array *array)
+void create_array(int argc, char **argv, t_array *new)
 {
 	int p;
 	int i;
@@ -52,15 +52,24 @@ void create_array(int argc, char **argv, t_array *array)
 		{
 			buff[p] = ft_atoi(mass[p]);
 		}
-		ft_stacking(array, buff, count_element);
+		ft_stacking(new, buff, count_element);
 		i++;
 	}
 }
 
-void	ft_stacking(t_array *array, int *buff, int count)
+void	ft_stacking(t_array *new, int *buff, int count)
 {
-	array->a[array->count_element] = *buff;
-	array->count_element ++;
+
+	new->a[new->count_element] = *buff;
+	new->count_element ++;
+
+}
+
+////==============Здесь инициализируем два листа со стеком А и B
+void ft_create_stacks(t_array *array, t_stacks *stacks)
+{
+	// stacks->a = ft_create_stack(array->a,array->count_element);
+	// stacks->b = NULL;
 }
 
 /// Здесь перекидываем наш массив с использованеим Stack в А
@@ -81,38 +90,31 @@ t_stack *ft_create_stack(int *buff, int count)
 			if (!(list->next = (t_stack *)malloc(sizeof(t_stack))))
 				exit(1);
 		}
-		list->number = *buff;
+		list->number = buff[i];
 		if (i == (count  - i))
 			list->next = NULL;
 		else
-			list = list -> next;
+			list = list ->next;
 		i++;
 	}
 	return (list);
 }
 
-////==============Здесь инициализируем два листа со стеком А и B
-void ft_create_stacks(t_array *array, t_stacks *stacks)
-{
-	stacks->a = ft_create_stack(array->a,array->count_element);
-	// stacks->b = NULL;
-}
-
 
 int main(int argc, char **argv)
 {
-	t_array *array;
+	t_array *new;
 	t_stacks *stacks;
 
 
 	if (argc < 2)
-		return(1);
-	if (!(array = (t_array *)malloc(sizeof(t_array))))
-		return(1);
-	if (!(stacks = (t_stacks *)malloc(sizeof(t_stacks))))
-		return (1);
-	create_array(argc, argv, array);
-	ft_create_stacks(array, stacks);
+		exit(1);
+	if (!(new = (t_array *)malloc(sizeof(t_array))))
+		exit(1);
+	// if (!(stacks = (t_stacks *)malloc(sizeof(t_stacks))))
+	// 	return (1);
+	create_array(argc, argv, new);
+	//ft_create_stacks(array, stacks);
 
 	// проверка массива ===============
 	// int i;
@@ -123,7 +125,7 @@ int main(int argc, char **argv)
 	// 	i++;
 	// }
 	//=========================================
-
-	//printf("%d",stacks->a);
 	return (0);
 }
+
+https://github.com/iamrustamov/push_swap/blob/master/separation.c
