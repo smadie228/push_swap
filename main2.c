@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:01:13 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/04 21:57:16 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/07 12:18:57 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@ int	ft_countword(char *s)
 	return (count);
 }
 
+void	ft_stacking(t_array *new, int *buff, int count)
+{
+
+	new->a[new->count_element] = *buff;
+	new->count_element ++;
+
+}
+
 void create_array(int argc, char **argv, t_array *new)
 {
 	int p;
@@ -45,7 +53,7 @@ void create_array(int argc, char **argv, t_array *new)
 	{
 		p = -1;
 		count_element = ft_countword(argv[i]);
-		mass = ft_split(argv[i], '1');
+		mass = ft_split(argv[i], ' ');
 		if (!(buff = (int *)malloc(sizeof(int) * (count_element))))
 			exit(1);
 		while (count_element > ++p)
@@ -57,20 +65,6 @@ void create_array(int argc, char **argv, t_array *new)
 	}
 }
 
-void	ft_stacking(t_array *new, int *buff, int count)
-{
-
-	new->a[new->count_element] = *buff;
-	new->count_element ++;
-
-}
-
-////==============Здесь инициализируем два листа со стеком А и B
-void ft_create_stacks(t_array *array, t_stacks *stacks)
-{
-	// stacks->a = ft_create_stack(array->a,array->count_element);
-	// stacks->b = NULL;
-}
 
 /// Здесь перекидываем наш массив с использованеим Stack в А
 
@@ -100,6 +94,13 @@ t_stack *ft_create_stack(int *buff, int count)
 	return (list);
 }
 
+////==============Здесь инициализируем два листа со стеком А и B
+void ft_create_stacks(t_array *array, t_stacks *stacks)
+{
+	stacks->a = ft_create_stack(array->a,array->count_element);
+	stacks->b = NULL;
+}
+
 
 int main(int argc, char **argv)
 {
@@ -108,13 +109,15 @@ int main(int argc, char **argv)
 
 
 	if (argc < 2)
-		exit(1);
+		return (1);
 	if (!(new = (t_array *)malloc(sizeof(t_array))))
-		exit(1);
-	// if (!(stacks = (t_stacks *)malloc(sizeof(t_stacks))))
-	// 	return (1);
+		return (1);
+	if (!(stacks = (t_stacks *)malloc(sizeof(t_stacks))))
+		return (1);
+
 	create_array(argc, argv, new);
-	//ft_create_stacks(array, stacks);
+
+	ft_create_stacks(new, stacks);
 
 	// проверка массива ===============
 	// int i;
@@ -128,4 +131,4 @@ int main(int argc, char **argv)
 	return (0);
 }
 
-https://github.com/iamrustamov/push_swap/blob/master/separation.c
+
