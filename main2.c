@@ -6,56 +6,55 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:01:13 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/07 13:51:22 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/07 14:57:33 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/// Здесь перекидываем наш массив с использованеим Stack в А
-
-t_stack *ft_create_stack(int *buff, int count)
+int		ft_max(t_stack *s)
 {
-	int i;
-	t_stack	*list;
-	t_stack *first_number;
+	int max;
 
-	i = 0;
-	if(!(list= (t_stack *)malloc(sizeof(t_stack))))
-		exit(1);
-	first_number = list;
-	while (i < count)
+	max = s->number;
+	while (s)
 	{
-		if (i < count - 1)
-		{
-			if (!(list->next = (t_stack *)malloc(sizeof(t_stack))))
-				exit(1);
-		}
-		list->number = buff[i];
-		printf("buff = %d\n",buff[i]);
-		printf("list = %d\n",list->number);
-		if (i == (count  - 1))
-			list->next = NULL;
-		else
-			list = list ->next;
-		i++;
+		if (s->number > max)
+			max = s->number;
+		s = s->next;
 	}
-	return (first_number);
+	return (max);
 }
 
-////==============Здесь инициализируем два листа со стеком А и B
-void ft_create_stacks(t_array *new, t_stacks *stacks)
+void ft_3_elementsort(t_stacks *stacks)
 {
-	stacks->a = ft_create_stack(new->a,new->count_element);
-	stacks->b = NULL;
+	int max;
+
+	max = ft_max(stacks->a);
+	if	(stacks->a->number > stacks->a->next->number)
+		ft_sa(stacks->a, 1);
+		return ;
+	if (stacks->count_a == 3)
+	{
+		if (stacks->a->number == max)
+			ft_ra(&stacks->a, 1);
+		if (stacks->a->next->number == max)
+			ft_rra(&stacks->a, 1);
+		if (stacks->a->number > stacks->a->next->number)
+			ft_sa(stacks->a, 1);
+	}
 }
 
+void ft_sort(t_stacks *stacks)
+{
+	if (stacks->count_a <= 3)
+		ft_3_elementsort(stacks);
+}
 
 int main(int argc, char **argv)
 {
 	t_array *new;
 	t_stacks *stacks;
-
 
 	if (argc < 2)
 		return (1);
@@ -66,6 +65,9 @@ int main(int argc, char **argv)
 
 	create_array(argc, argv, new);
 	ft_create_stacks(new, stacks);
+	printf("%d\n",stacks->a->number);
+	printf("%d\n",stacks->a->next->number);
+	ft_sort(stacks);
 	return (0);
 }
 
