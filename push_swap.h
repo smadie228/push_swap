@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 14:15:36 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/07 12:57:22 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/07 13:50:17 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ char	**ft_split(char	const *s, char c);
 int	ft_atoi(const char *str);
 //////////////////////
 
-// пару функции
+// пару функции для array
+int	ft_countword(char *s);
 void	ft_stacking(t_array *new, int *buff, int count);
+void	create_array(int argc, char **argv, t_array *new);
 
 #endif
