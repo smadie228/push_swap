@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:01:13 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/07 12:18:57 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/07 13:09:12 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@ int	ft_countword(char *s)
 
 void	ft_stacking(t_array *new, int *buff, int count)
 {
-
 	new->a[new->count_element] = *buff;
-	new->count_element ++;
-
+	new->count_element++;
 }
 
 void create_array(int argc, char **argv, t_array *new)
@@ -65,18 +63,18 @@ void create_array(int argc, char **argv, t_array *new)
 	}
 }
 
-
 /// Здесь перекидываем наш массив с использованеим Stack в А
 
 t_stack *ft_create_stack(int *buff, int count)
 {
-	t_stack	*list;
-
-	if(!(list= (t_stack *)malloc(sizeof(t_stack))))
-		exit(1);
 	int i;
+	t_stack	*list;
+	t_stack *first_number;
 
 	i = 0;
+	if(!(list= (t_stack *)malloc(sizeof(t_stack))))
+		exit(1);
+	first_number = list;
 	while (i < count)
 	{
 		if (i < count - 1)
@@ -85,19 +83,20 @@ t_stack *ft_create_stack(int *buff, int count)
 				exit(1);
 		}
 		list->number = buff[i];
+		//printf("%d\n",list->number);
 		if (i == (count  - i))
 			list->next = NULL;
 		else
 			list = list ->next;
 		i++;
 	}
-	return (list);
+	return (first_number);
 }
 
 ////==============Здесь инициализируем два листа со стеком А и B
-void ft_create_stacks(t_array *array, t_stacks *stacks)
+void ft_create_stacks(t_array *new, t_stacks *stacks)
 {
-	stacks->a = ft_create_stack(array->a,array->count_element);
+	stacks->a = ft_create_stack(new->a,new->count_element);
 	stacks->b = NULL;
 }
 
@@ -116,18 +115,14 @@ int main(int argc, char **argv)
 		return (1);
 
 	create_array(argc, argv, new);
-
 	ft_create_stacks(new, stacks);
+	int i = 0;
+	while (10 > i)
+	{
+		printf("%d",stacks->a->number);
+		i++;
+	}
 
-	// проверка массива ===============
-	// int i;
-	// i = 0;
-	// while (i < 10 )
-	// {
-	// 	printf("%d\n",new->a[i]);
-	// 	i++;
-	// }
-	//=========================================
 	return (0);
 }
 
