@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 14:15:36 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/07 14:56:33 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/08 20:56:24 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ typedef struct s_stacks
 {
 	int	count_a;
 	int count_b;
+	int min;
+	int max;
+	int med;
 	t_stack *a;
 	t_stack *b;
 }	t_stacks;
@@ -58,5 +61,23 @@ void ft_create_stacks(t_array *new, t_stacks *stacks);
 void ft_sa(t_stack *a, int i);
 void ft_sb(t_stack *b, int i);
 void ft_ss(t_stacks *s, int i);
+void ft_pa(t_stacks *s, int i);
+void ft_pb(t_stacks *s, int i);
+
+//наши операции часть 2
+void ft_ra(t_stack **a, int i);
+void ft_rb(t_stack **b, int i);
+void ft_rr(t_stacks *s, int i);
+void ft_rra(t_stack **a, int i);
+void ft_rrb(t_stack **b, int i);
+
+// quick_sort
+void ft_quick_sort(int *array, int firsr_element, int last_element);
+int ft_part(int *array, int start, int end);
+
+// работа с дубликатами и с массивом
+int *ft_intcopy(int *dst, int *src, int count);
+void ft_search_duplicate(int *duplicate, int count);
+void ft_duplicate(t_array *new, t_stacks *stacks);
 
 #endif

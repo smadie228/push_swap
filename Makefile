@@ -6,7 +6,7 @@
 #    By: smadie <smadie@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/03 19:05:34 by smadie            #+#    #+#              #
-#    Updated: 2022/03/07 15:07:11 by smadie           ###   ########.fr        #
+#    Updated: 2022/03/08 20:39:49 by smadie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,9 @@ SRCS	= 	includes/ft_atoi.c\
 			includes/ft_stacks.c\
 			includes/ft_operations_1.c\
 			includes/ft_operations_2.c\
+			includes/ft_quik_sort.c\
+			includes/ft_duplicate.c\
 			main2.c\
-
 
 OBJS 	= $(SRCS:%.c=%.o)
 

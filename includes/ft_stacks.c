@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 14:10:58 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/07 14:30:45 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/08 20:56:27 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ t_stack *ft_create_stack(int *buff, int count)
 				exit(1);
 		}
 		list->number = buff[i];
-		printf("buff = %d\n",buff[i]);
-		printf("list = %d\n",list->number);
 		if (i == (count  - 1))
 			list->next = NULL;
 		else
