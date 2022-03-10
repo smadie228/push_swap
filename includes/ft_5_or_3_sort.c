@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 21:22:06 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/10 21:23:33 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/11 01:00:26 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ void ft_3_elementsort(t_stacks *stacks)
 
 	max = ft_max(stacks->a);
 	if (stacks-> count_a == 1)
+	{
 		exit(1);
-	if (stacks->count_a == 2)
+	}
+	else if (stacks->count_a == 2)
 	{
 		if (stacks->a->number > stacks->a->next->number)
 			ft_sa(stacks->a, 1);

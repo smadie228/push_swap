@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 20:37:07 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/10 21:10:40 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/10 23:47:36 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void ft_search_duplicate(int *duplicate, int count)
 	{
 		if (duplicate[i] == duplicate[i + 1])
 		{
-			write (1, "Find duplicate\n", 15);
+			write (1, "\e[31m\e[1mFind duplicate\n%s \e[0m", 24);
 			exit (1);
 		}
 		i++;

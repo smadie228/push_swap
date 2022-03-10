@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:01:13 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/10 22:49:56 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/11 00:41:03 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,17 @@ int main(int argc, char **argv)
 	if (!(stacks = (t_stacks *)malloc(sizeof(t_stacks))))
 		exit (1);
 	ft_null_stack(stacks, new);
-	create_array(argc, argv, new);
-	ft_duplicate(new, stacks);
-	ft_create_stacks(new, stacks);
-	ft_sort(stacks);
-	ft_free_stacks(stacks);
+	if (ft_validation(argc, argv))
+	{
+		create_array(argc, argv, new);
+		ft_duplicate(new, stacks);
+		if (ft_is_sorted(new))
+		{
+			ft_create_stacks(new, stacks);
+			ft_sort(stacks);
+			ft_free_stacks(stacks);
+		}
+	}
 	free(new);
 	free(stacks);
 	return (0);

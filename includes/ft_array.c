@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 13:48:34 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/07 13:51:46 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/10 23:00:01 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	ft_stacking(t_array *new, int *buff, int count)
 {
 	new->a[new->count_element] = *buff;
 	new->count_element++;
+	free(buff);
 };
 
 void	create_array(int argc, char **argv, t_array *new)
@@ -57,6 +58,7 @@ void	create_array(int argc, char **argv, t_array *new)
 		while (count_element > ++p)
 		{
 			buff[p] = ft_atoi(mass[p]);
+			free(mass[p]);
 		}
 		free(mass);
 		ft_stacking(new, buff, count_element);

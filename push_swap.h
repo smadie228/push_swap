@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 14:15:36 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/10 22:46:14 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/11 00:57:59 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ typedef struct s_steps
 // чел ты издиваешься закидывать всю либу???
 char	**ft_split(char	const *s, char c);
 int	ft_atoi(const char *str);
+void ft_error(void);
+void	ft_putchar(char c);
+void	ft_putstr(char *s);
 //////////////////////
 
 // пару функции для array
@@ -86,6 +89,7 @@ void ft_rrb(t_stack **b, int i);
 // quick_sort
 void ft_quick_sort(int *array, int firsr_element, int last_element);
 int ft_part(int *array, int start, int end);
+int ft_is_sorted(t_array *new);
 
 // работа с дубликатами и с массивом
 int *ft_intcopy(int *dst, int *src, int count);
@@ -113,5 +117,10 @@ void ft_min_step(t_stacks *stacks, t_steps *steps);
 void ft_instruction_step(t_stacks *stacks, t_steps *steps);
 
 
+// проверка на валидность
+int ft_spaces(char *str);
+void ft_validation_number(char *str);
+void ft_validation_str(char *str);
+int ft_validation(int argc, char **argv);
 
 #endif

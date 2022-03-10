@@ -6,11 +6,28 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 20:17:40 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/08 20:25:05 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/11 00:43:12 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int ft_is_sorted(t_array *new)
+{
+	int i;
+
+	i = 0;
+	if (new->count_element == 1)
+		return (1);
+	while (i < (new->count_element - 1))
+	{
+		if (new->a[i] > new->a[i + 1])
+			return (1);
+		i++;
+	}
+	//write(1,"\e[32m\e[1mYour data is sorted\n%s \e[0m",29);
+	return (0);
+}
 
 void ft_quick_sort(int *array, int firsr_element, int last_element)
 {
