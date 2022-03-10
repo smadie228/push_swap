@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 14:10:58 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/08 20:56:27 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/10 22:47:27 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,40 @@ t_stack *ft_create_stack(int *buff, int count)
 void ft_create_stacks(t_array *new, t_stacks *stacks)
 {
 	stacks->a = ft_create_stack(new->a,new->count_element);
+	stacks->b = NULL;
+}
+
+void ft_free_stacks(t_stacks *stacks)
+{
+	int i;
+	t_stack *buff;
+
+	i = 0;
+	while (i < stacks->count_a)
+	{
+		buff = stacks->a;
+		stacks->a = stacks->a->next;
+		free (buff);
+		i++;
+	}
+	i = 0;
+	while (i < stacks->count_b)
+	{
+		buff = stacks->b;
+		stacks->b = stacks->b->next;
+		free (buff);
+		i++;
+	}
+}
+
+void ft_null_stack(t_stacks *stacks, t_array *new)
+{
+	new->count_element = 0;
+	stacks->count_a = 0;
+	stacks->count_b = 0;
+	stacks->min = 0;
+	stacks->med = 0;
+	stacks->max = 0;
+	stacks->a = NULL;
 	stacks->b = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 14:15:36 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/10 22:13:12 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/10 22:46:14 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ void	create_array(int argc, char **argv, t_array *new);
 //пару функции для создания листов и их инициализации
 t_stack *ft_create_stack(int *buff, int count);
 void ft_create_stacks(t_array *new, t_stacks *stacks);
+void ft_free_stacks(t_stacks *stacks);
+void ft_null_stack(t_stacks *stacks, t_array *new);
 
 
 //наши операции часть 1
@@ -109,6 +111,7 @@ void ft_begin_sort(t_stacks *stacks);
 void ft_steps_pointed(t_stack *b, int count);
 void ft_min_step(t_stacks *stacks, t_steps *steps);
 void ft_instruction_step(t_stacks *stacks, t_steps *steps);
+
 
 
 #endif
