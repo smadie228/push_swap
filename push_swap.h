@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 14:15:36 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/11 00:57:59 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/11 01:57:02 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct s_steps
 // чел ты издиваешься закидывать всю либу???
 char	**ft_split(char	const *s, char c);
 int	ft_atoi(const char *str);
-void ft_error(void);
+void 	ft_error(void);
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
 //////////////////////
