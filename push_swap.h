@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 14:15:36 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/08 20:56:24 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/10 22:13:12 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct s_array // создаем массив в структуре
 typedef struct s_stack
 {
 	int number;
+	int step;
+	int rotate;
 	struct s_stack *next;
 }	t_stack;
 
@@ -41,6 +43,14 @@ typedef struct s_stacks
 	t_stack *a;
 	t_stack *b;
 }	t_stacks;
+
+typedef struct s_steps
+{
+	int count_a;
+	int count_b;
+	int dest_a;
+	int dest_b;
+}	t_steps;
 
 // чел ты издиваешься закидывать всю либу???
 char	**ft_split(char	const *s, char c);
@@ -79,5 +89,26 @@ int ft_part(int *array, int start, int end);
 int *ft_intcopy(int *dst, int *src, int count);
 void ft_search_duplicate(int *duplicate, int count);
 void ft_duplicate(t_array *new, t_stacks *stacks);
+
+// сортировка 3 или 5 элементов
+int		ft_max(t_stack *s);
+void ft_3_elementsort(t_stacks *stacks);
+void ft_5_elementsort(t_stacks *stacks);
+
+// нахождение лучшшего места для вставки и ее обработка
+
+void	ft_help_finding_place(t_stacks *s, t_stack *b, int *action, int *buff);
+int		ft_finding_place(t_stacks *s, t_stack *b, t_steps *steps, int min);
+int		ft_smaller_element_detection(t_stack *a, int buff, int src);
+int		ft_count_to_min(t_stack *a, int min);
+
+//глобальная сортировка > 5 элеменов
+
+void ft_max_sort(t_stacks *stacks);
+void ft_begin_sort(t_stacks *stacks);
+void ft_steps_pointed(t_stack *b, int count);
+void ft_min_step(t_stacks *stacks, t_steps *steps);
+void ft_instruction_step(t_stacks *stacks, t_steps *steps);
+
 
 #endif

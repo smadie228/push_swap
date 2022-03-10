@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 20:37:07 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/08 20:49:13 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/10 21:10:40 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void ft_search_duplicate(int *duplicate, int count)
 	int i;
 
 	i = 0;
-	printf("count =%d",count);
 	while(i != count)
 	{
 		if (duplicate[i] == duplicate[i + 1])
