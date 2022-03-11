@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_array.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smadie228 <smadie228@student.42.fr>        +#+  +:+       +#+        */
+/*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 13:48:34 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/11 18:13:12 by smadie228        ###   ########.fr       */
+/*   Updated: 2022/03/11 19:37:59 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_countword(char *s)
 	return (count);
 }
 
-void	ft_stacking(t_array *new, long long int *buff, int count)
+void	ft_stacking(t_array *new, long *buff, int count)
 {
 	int	i;
 
@@ -48,7 +48,7 @@ void	create_array(int argc, char **argv, t_array *new)
 	int		p;
 	int		i;
 	int		count_element;
-	long long int		*buff;
+	long	*buff;
 
 	i = 1;
 	while (i < argc)
@@ -56,7 +56,7 @@ void	create_array(int argc, char **argv, t_array *new)
 		p = -1;
 		count_element = ft_countword(argv[i]);
 		mass = ft_split(argv[i], ' ');
-		buff = (long long int *)malloc(sizeof(long long int) * (count_element));
+		buff = (long *)malloc(sizeof(long) * (count_element));
 		if (!(buff))
 			exit(1);
 		while (count_element > ++p)
@@ -71,8 +71,8 @@ void	create_array(int argc, char **argv, t_array *new)
 	}
 }
 
-void	ft_valid_max_min_int(long long int new)
+void	ft_valid_max_min_int(long new)
 {
-	if (new > 2147483647 || new < -214748368)
+	if (new > 2147483647 || new < -2147483648)
 		ft_error();
 }

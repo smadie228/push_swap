@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smadie228 <smadie228@student.42.fr>        +#+  +:+       +#+        */
+/*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 18:59:52 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/11 17:46:00 by smadie228        ###   ########.fr       */
+/*   Updated: 2022/03/11 19:32:22 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int	ft_isdigit(int c)
 		return (0);
 }
 
-long long int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	long long int	g;
-	int	n;
+	long	g;
+	int		n;
 
 	g = 0;
 	n = 1;
