@@ -18,9 +18,10 @@ This python script was created to visualize your work with the PUSH_SWAP
 You must put this script in the same path or in a sibling path of your program
 Of course you need Python3 with the builtin Tkinter.
 You can install it with Brew./Users/smadie/Desktop/push_swap
---> Brew install python3
+--> Brew install pytho3
 Execute the script with :
 --> python3 pyviz.py `ruby -e "puts (1..200).to_a.shuffle.join(' ')"`
+leaks --atExit -- ./push_swap `ruby -e "puts (1..1000).to_a.shuffle.join(' ')"` leaks
 You can change the PUSHS_PATH to get to the relative path of your push_swap
 You can decrease or increase the speed with the matching buttons.
 """
