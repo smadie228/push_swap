@@ -21,7 +21,12 @@ You can install it with Brew./Users/smadie/Desktop/push_swap
 --> Brew install pytho3
 Execute the script with :
 --> python3 pyviz.py `ruby -e "puts (1..200).to_a.shuffle.join(' ')"`
+
 leaks --atExit -- ./push_swap `ruby -e "puts (1..1000).to_a.shuffle.join(' ')"` leaks
+ARG="2 1 0"; ./push_swap $ARG | ./checker $ARG;
+ARG="1 5 2 4 3"; ./push_swap $ARG | ./checker $ARG
+
+
 You can change the PUSHS_PATH to get to the relative path of your push_swap
 You can decrease or increase the speed with the matching buttons.
 """
