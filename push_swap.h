@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
+/*   By: smadie228 <smadie228@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 14:15:36 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/11 06:42:07 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/11 18:13:02 by smadie228        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct s_steps
 
 // либа укороченная
 char	**ft_split(char	const *s, char c);
-int		ft_atoi(const char *str);
+long long int		ft_atoi(const char *str);
 void	ft_error(void);
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
@@ -60,8 +60,9 @@ void	ft_putstr(char *s);
 
 // пару функции для array
 int		ft_countword(char *s);
-void	ft_stacking(t_array *new, int *buff, int count);
+void	ft_stacking(t_array *new, long long int *buff, int count);
 void	create_array(int argc, char **argv, t_array *new);
+void	ft_valid_max_min_int(long long int new);
 
 //пару функции для создания листов и их инициализации
 t_stack	*ft_create_stack(int *buff, int count);
