@@ -22,7 +22,7 @@ You can install it with Brew./Users/smadie/Desktop/push_swap
 Execute the script with :
 --> python3 pyviz.py `ruby -e "puts (1..200).to_a.shuffle.join(' ')"`
 
-leaks --atExit -- ./push_swap `ruby -e "puts (1..1000).to_a.shuffle.join(' ')"` leaks
+leaks --atExit -- ./push_swap `ruby -e "puts (1..1000).to_a.shuffle.join(' ')"`
 ARG="2 1 0"; ./push_swap $ARG | ./checker $ARG;
 ARG="1 5 2 4 3"; ./push_swap $ARG | ./checker $ARG
 

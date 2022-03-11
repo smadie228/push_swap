@@ -6,7 +6,7 @@
 #    By: smadie <smadie@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/03 19:05:34 by smadie            #+#    #+#              #
-#    Updated: 2022/03/11 07:14:25 by smadie           ###   ########.fr        #
+#    Updated: 2022/03/11 20:35:56 by smadie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,24 +29,29 @@ SRCS	= 	src/ft_atoi.c\
 			includes/push_swap.c\
 
 HEADER	= push_swap.h
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -I $(HEADER)
 OBJS		= $(SRCS:%.c=%.o)
 CC		= gcc
 
-all:	$(NAME)
+CHECKER	= superchecker/checker
 
-$(NAME):	$(OBJS)
-			$(CC) $(SRCS) $(CFLAGS) -o $(NAME)
+all: $(NAME)
 
-%.o:	%.c $(HEADER)
-		$(CC) $(CFLAGS) -c $< -o $@
+$(NAME):	$(OBJS) $(HEADER)
+			$(CC) $(CFLAGS) $(OBJS) -o $@
+
+$(CHECKER):
+	make -C superchecker
+
+bonus:	$(CHECKER)
 
 clean:
+			make $@ -C superchecker
 			$(RM) $(OBJS)
 
 fclean:	clean
+			make $@ -C superchecker
 			$(RM) $(NAME)
-			$(RM) *.out
 
 re:		fclean all
 
