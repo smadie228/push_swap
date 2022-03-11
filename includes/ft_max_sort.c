@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 22:02:04 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/10 22:14:11 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/11 03:04:58 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void ft_instruction_step(t_stacks *stacks, t_steps *steps)
 	}
 	while (steps->count_b > 0)
 	{
-		if (steps->dest_a == 1)
+		if (steps->dest_b == 1)
 			ft_rb(&stacks->b, 1);
 		else
 			ft_rrb(&stacks->b, 1);

@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 14:10:58 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/10 22:47:27 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/11 02:58:12 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void ft_free_stacks(t_stacks *stacks)
 	{
 		buff = stacks->b;
 		stacks->b = stacks->b->next;
-		free (buff);
+		free(buff);
 		i++;
 	}
 }

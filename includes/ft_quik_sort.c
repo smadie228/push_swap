@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 20:17:40 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/11 00:43:12 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/11 02:54:47 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int ft_is_sorted(t_array *new)
 			return (1);
 		i++;
 	}
-	//write(1,"\e[32m\e[1mYour data is sorted\n%s \e[0m",29);
 	return (0);
 }
 

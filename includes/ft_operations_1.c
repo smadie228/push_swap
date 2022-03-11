@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 14:42:12 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/07 15:07:28 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/11 03:11:47 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void ft_sa(t_stack *a, int i)
 
 	if (a == NULL || a->next == NULL)
 		return ;
-	z = a -> number;
+	z = a ->number;
+	a->number = a->next->number;
 	a->next->number = z;
 	if ( i == 1)
 		write(1, "sa\n", 3);

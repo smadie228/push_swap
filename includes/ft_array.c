@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 13:48:34 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/10 23:00:01 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/11 02:41:13 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,12 @@ int	ft_countword(char *s)
 
 void	ft_stacking(t_array *new, int *buff, int count)
 {
-	new->a[new->count_element] = *buff;
-	new->count_element++;
+	int i;
+
+	i = -1;
+	while (count > ++i)
+		new->a[new->count_element + i] = buff[i];
+	new->count_element += count;
 	free(buff);
 };
 

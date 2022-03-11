@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 23:03:46 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/11 00:49:42 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/11 02:27:33 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int ft_spaces(char *str)
 		else
 			return (1);
 	}
-	ft_error();
 	return (0);
 }
 
@@ -38,7 +37,6 @@ void ft_validation_number(char *str)
 		str++;
 	}
 	ft_error();
-	exit(1);
 }
 
 void ft_validation_str(char *str)
