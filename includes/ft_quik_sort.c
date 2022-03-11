@@ -6,15 +6,15 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 20:17:40 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/11 02:54:47 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/11 06:27:25 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int ft_is_sorted(t_array *new)
+int	ft_is_sorted(t_array *new)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (new->count_element == 1)
@@ -28,24 +28,24 @@ int ft_is_sorted(t_array *new)
 	return (0);
 }
 
-void ft_quick_sort(int *array, int firsr_element, int last_element)
+void	ft_quick_sort(int *array, int firsr_element, int last_element)
 {
-	int z;
+	int	z;
 
 	if (firsr_element < last_element)
 	{
-		z = ft_part(array,firsr_element,last_element);
-		ft_quick_sort(array,firsr_element, z - 1);
+		z = ft_part(array, firsr_element, last_element);
+		ft_quick_sort(array, firsr_element, z - 1);
 		ft_quick_sort(array, z + 1, last_element);
 	}
 }
 
-int ft_part(int *array, int start, int end)
+int	ft_part(int *array, int start, int end)
 {
-	int i;
-	int j;
-	int pivot;
-	int temp;
+	int	i;
+	int	j;
+	int	pivot;
+	int	temp;
 
 	pivot = array[end];
 	i = start - 1;

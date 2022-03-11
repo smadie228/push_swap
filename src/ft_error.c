@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 23:19:51 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/11 00:58:13 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/11 04:08:42 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	write(2, &c, 1);
 }
 
 void	ft_putstr(char *s)

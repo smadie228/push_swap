@@ -6,14 +6,14 @@
 #    By: smadie <smadie@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/03 19:05:34 by smadie            #+#    #+#              #
-#    Updated: 2022/03/10 23:19:44 by smadie           ###   ########.fr        #
+#    Updated: 2022/03/11 07:14:25 by smadie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 	= push_swap
-CC		= gcc
-SRCS	= 	includes/ft_atoi.c\
-			includes/ft_split.c\
+
+SRCS	= 	src/ft_atoi.c\
+			src/ft_split.c\
 			includes/ft_array.c\
 			includes/ft_stacks.c\
 			includes/ft_operations_1.c\
@@ -24,20 +24,27 @@ SRCS	= 	includes/ft_atoi.c\
 			includes/ft_find_place.c\
 			includes/ft_max_sort.c\
 			includes/ft_validation.c\
-			includes/ft_error.c\
-			push_swap.c\
+			src/ft_error.c\
+			includes/ft_operations_3.c\
+			includes/push_swap.c\
 
-OBJS 	= $(SRCS:%.c=%.o)
+HEADER	= push_swap.h
+CFLAGS	= -Wall -Wextra -Werror
+OBJS		= $(SRCS:%.c=%.o)
+CC		= gcc
 
 all:	$(NAME)
 
 $(NAME):	$(OBJS)
-				$(CC) $(SRCS)   -o $(NAME)
+			$(CC) $(SRCS) $(CFLAGS) -o $(NAME)
+
+%.o:	%.c $(HEADER)
+		$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 			$(RM) $(OBJS)
 
-fclean: clean
+fclean:	clean
 			$(RM) $(NAME)
 			$(RM) *.out
 

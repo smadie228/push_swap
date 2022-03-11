@@ -6,15 +6,15 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 21:22:06 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/11 01:00:26 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/11 06:57:06 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int		ft_max(t_stack *s)
+int	ft_max(t_stack *s)
 {
-	int max;
+	int	max;
 
 	max = s->number;
 	while (s)
@@ -26,14 +26,14 @@ int		ft_max(t_stack *s)
 	return (max);
 }
 
-void ft_3_elementsort(t_stacks *stacks)
+void	ft_3_elementsort(t_stacks *stacks)
 {
-	int max;
+	int	max;
 
 	max = ft_max(stacks->a);
 	if (stacks-> count_a == 1)
 	{
-		exit(1);
+		exit (1);
 	}
 	else if (stacks->count_a == 2)
 	{
@@ -52,14 +52,15 @@ void ft_3_elementsort(t_stacks *stacks)
 	}
 }
 
-void ft_5_elementsort(t_stacks *stacks)
+void	ft_5_elementsort(t_stacks *stacks)
 {
 	while (stacks->count_b < 2)
 	{
-		if (stacks->a->number == stacks->min || stacks->a->number == stacks->max)
-			ft_pb(stacks,1);
+		if (stacks->a->number == stacks->min
+			|| stacks->a->number == stacks->max)
+			ft_pb(stacks, 1);
 		else
-			ft_ra(&stacks->a,1);
+			ft_ra(&stacks->a, 1);
 	}
 	ft_3_elementsort(stacks);
 	ft_pa(stacks, 1);

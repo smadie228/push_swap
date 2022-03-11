@@ -6,7 +6,7 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 14:10:58 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/11 02:58:12 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/11 07:23:44 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,27 @@
 
 /// Здесь перекидываем наш массив с использованеим Stack в А
 
-t_stack *ft_create_stack(int *buff, int count)
+t_stack	*ft_create_stack(int *buff, int count)
 {
-	int i;
+	int		i;
 	t_stack	*list;
-	t_stack *first_number;
+	t_stack	*first_number;
 
 	i = 0;
-	if(!(list= (t_stack *)malloc(sizeof(t_stack))))
+	list = (t_stack *)malloc(sizeof(t_stack));
+	if (!(list))
 		exit(1);
 	first_number = list;
 	while (i < count)
 	{
 		if (i < count - 1)
 		{
-			if (!(list->next = (t_stack *)malloc(sizeof(t_stack))))
+			list->next = (t_stack *)malloc(sizeof(t_stack));
+			if (!(list->next))
 				exit(1);
 		}
 		list->number = buff[i];
-		if (i == (count  - 1))
+		if (i == (count - 1))
 			list->next = NULL;
 		else
 			list = list ->next;
@@ -42,16 +44,16 @@ t_stack *ft_create_stack(int *buff, int count)
 }
 
 ////==============Здесь инициализируем два листа со стеком А и B
-void ft_create_stacks(t_array *new, t_stacks *stacks)
+void	ft_create_stacks(t_array *new, t_stacks *stacks)
 {
-	stacks->a = ft_create_stack(new->a,new->count_element);
+	stacks->a = ft_create_stack(new->a, new->count_element);
 	stacks->b = NULL;
 }
 
-void ft_free_stacks(t_stacks *stacks)
+void	ft_free_stacks(t_stacks *stacks)
 {
-	int i;
-	t_stack *buff;
+	int		i;
+	t_stack	*buff;
 
 	i = 0;
 	while (i < stacks->count_a)
@@ -71,7 +73,7 @@ void ft_free_stacks(t_stacks *stacks)
 	}
 }
 
-void ft_null_stack(t_stacks *stacks, t_array *new)
+void	ft_null_stack(t_stacks *stacks, t_array *new)
 {
 	new->count_element = 0;
 	stacks->count_a = 0;

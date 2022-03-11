@@ -6,17 +6,18 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 22:02:04 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/11 03:04:58 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/11 07:26:53 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void ft_max_sort(t_stacks *stacks) // подготовка к сортировке
+void	ft_max_sort(t_stacks *stacks)
 {
 	while (stacks->count_a > 2)
 	{
-		if (stacks->a->number != stacks->min && stacks->a->number != stacks->max)
+		if (stacks->a->number != stacks->min
+			&& stacks->a->number != stacks->max)
 		{
 			ft_pb(stacks, 1);
 			if (stacks->b->number > stacks->med)
@@ -31,11 +32,11 @@ void ft_max_sort(t_stacks *stacks) // подготовка к сортировк
 	ft_begin_sort(stacks);
 }
 
-void ft_steps_pointed(t_stack *b, int count)
+void	ft_steps_pointed(t_stack *b, int count)
 {
-	int i;
-	int point;
-	t_stack *buff;
+	t_stack	*buff;
+	int		i;
+	int		point;
 
 	i = -1;
 	point = count / 2;
@@ -56,11 +57,11 @@ void ft_steps_pointed(t_stack *b, int count)
 	}
 }
 
-void ft_min_step(t_stacks *stacks, t_steps *steps)
+void	ft_min_step(t_stacks *stacks, t_steps *steps)
 {
-	int min;
-	t_stack *first_a;
-	t_stack *first_b;
+	int		min;
+	t_stack	*first_a;
+	t_stack	*first_b;
 
 	min = -1;
 	first_a = stacks->a;
@@ -74,7 +75,7 @@ void ft_min_step(t_stacks *stacks, t_steps *steps)
 	stacks->b = first_b;
 }
 
-void ft_instruction_step(t_stacks *stacks, t_steps *steps)
+void	ft_instruction_step(t_stacks *stacks, t_steps *steps)
 {
 	while (steps->count_a > 0)
 	{
@@ -95,11 +96,12 @@ void ft_instruction_step(t_stacks *stacks, t_steps *steps)
 	ft_pa(stacks, 1);
 }
 
-void ft_begin_sort(t_stacks *stacks)
+void	ft_begin_sort(t_stacks *stacks)
 {
-	t_steps *step;
+	t_steps	*step;
 
-	if (!(step = (t_steps *)malloc(sizeof(t_steps))))
+	step = (t_steps *)malloc(sizeof(t_steps));
+	if (!(step))
 		exit (1);
 	while (stacks->count_b != 0)
 	{
@@ -119,8 +121,6 @@ void ft_begin_sort(t_stacks *stacks)
 	}
 	else
 		while (stacks->a->number != stacks->min)
-				ft_ra(&stacks->a, 1);
+			ft_ra(&stacks->a, 1);
 	free(step);
 }
-
-

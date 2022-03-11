@@ -6,13 +6,13 @@
 /*   By: smadie <smadie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:01:13 by smadie            #+#    #+#             */
-/*   Updated: 2022/03/11 00:41:03 by smadie           ###   ########.fr       */
+/*   Updated: 2022/03/11 06:35:44 by smadie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void ft_sort(t_stacks *stacks)
+void	ft_sort(t_stacks *stacks)
 {
 	if (stacks->count_a <= 3)
 		ft_3_elementsort(stacks);
@@ -22,17 +22,16 @@ void ft_sort(t_stacks *stacks)
 		ft_max_sort(stacks);
 }
 
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_array *new;
-	t_stacks *stacks;
+	t_array		*new;
+	t_stacks	*stacks;
 
 	if (argc < 2)
 		exit (1);
-	if (!(new = (t_array *)malloc(sizeof(t_array))))
-		exit (1);
-	if (!(stacks = (t_stacks *)malloc(sizeof(t_stacks))))
+	new = (t_array *)malloc(sizeof(t_array));
+	stacks = (t_stacks *)malloc(sizeof(t_stacks));
+	if (!(new) || !(stacks))
 		exit (1);
 	ft_null_stack(stacks, new);
 	if (ft_validation(argc, argv))
@@ -50,5 +49,3 @@ int main(int argc, char **argv)
 	free(stacks);
 	return (0);
 }
-
-
