@@ -30,7 +30,7 @@ The program prints the operation sequence to standard output. Validate it with t
 
 ```bash
 ARG="4 2 1 3"
-./push_swap $ARG | ./checker_Mac $ARG
+./push_swap $ARG | ./superchecker/checker $ARG
 ```
 
 ## Implementation notes
